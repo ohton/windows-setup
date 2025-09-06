@@ -1,43 +1,105 @@
+# Windows 11 セットアップ
 
-# Windows 11 ソフトウェア自動インストールセットアップ（winget export/import 方式）
-
-このリポジトリは、Windows 11環境でwingetの `export`/`import` 機能を使い、PowerShellからソフトウェアを一括インストールするためのセットアップ例です。
+このリポジトリは、Windows 11 環境での個人的なアプリケーションセットアップ例をまとめています。
 
 ## ファイル構成
-- `packages.json` : インストールしたいアプリ一覧（wingetのエクスポート形式JSONファイル）
-- `export-packages.ps1` : 現在のPCのインストール済みアプリ一覧を `packages.json` にエクスポートするPowerShellスクリプト
-- `install-apps.ps1` : `packages.json` を読み込み、wingetで一括インストールするPowerShellスクリプト
 
-## 使い方
-### 1. アプリ一覧のエクスポート
-インストール済みアプリをエクスポートしたいPCで、PowerShellから以下を実行：
-```powershell
-./export-packages.ps1
-```
-（または直接 `winget export packages.json` を実行）
+- `packages.json`  
+  インストールしたいアプリ一覧（wingetのエクスポート形式JSONファイル）
+- `export-packages.ps1`  
+  現在のPCのインストール済みアプリ一覧を `packages.json` にエクスポートするPowerShellスクリプト
+- `install-apps.ps1`  
+  `packages.json` を読み込み、wingetで一括インストールするPowerShellスクリプト
 
-### 2. 新しいPCで一括インストール
-エクスポートした `packages.json` を新しいPCにコピーし、PowerShellから以下を実行：
+## マニュアルインストール
+
+- **VSCode**  
+  wingetからインストールするとコンテキストメニュー追加のチェックが省略されるため、インストーラからインストール。
+
+## 一括インストール
+
+PowerShellから以下を実行することで、`packages.json` に記載されたアプリをインストールできます。
+
 ```powershell
 ./install-apps.ps1
 ```
-（または直接 `winget import packages.json` を実行）
+または直接以下を実行してください：
 
-## 注意事項
+```powershell
+winget import packages.json
+```
+
+### 注意事項
+
+- PowerShellスクリプトの実行ポリシーの設定が必要です。
+  - 現在のセッションのみ制限を緩和する場合：
+    ```powershell
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+    ```
+  - ユーザー全体で変更する場合：
+    ```powershell
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+    ```
 - wingetがインストールされている必要があります。
-- 管理者権限での実行を推奨します。
 - `packages.json` の内容は `winget export` で生成されます。
 
-## 例
+### アプリ一覧のエクスポート方法
+
+インストール済みアプリをエクスポートしたいPCで、PowerShellから以下を実行してください：
+
+```powershell
+./export-packages.ps1
+```
+または直接以下を実行してください：
+
+```powershell
+winget export packages.json
+```
+
 `packages.json` の例（抜粋）：
+
 ```json
 [
-   {
-      "PackageIdentifier": "Microsoft.Edge",
-      "Version": "latest"
-   },
-   {
-      "PackageIdentifier": "Google.Chrome",
-      "Version": "latest"
-   }
+  {
+    "PackageIdentifier": "Microsoft.Edge",
+    "Version": "latest"
+  },
+  {
+    "PackageIdentifier": "Google.Chrome",
+    "Version": "latest"
+  }
 ]
+```
+
+## インストール後のセットアップ
+
+### TightVNC Service
+
+- Primary passwordを設定
+- Main画面のみ表示用に Extra Portsで 5901: `1920x1080+0+0` を追加
+
+### Docker
+
+- `wsl --update` でWSLを最新に
+- `wsl --install` でUbuntuをインストール
+
+#### Docker Ubuntuでssh service設定
+
+- WSL settingsで設定変更
+  - ネットワーク
+    - ネットワークモード: `Mirrored`
+    - ホストアドレスのループバック: `True`
+- Ubuntuで設定
+
+  ```bash
+  sudo apt update
+  sudo apt upgrade -y
+  sudo apt install -y openssh-server
+  sudo systemctl start ssh
+  sudo systemctl status ssh
+  sudo systemctl enable ssh
+  ```
+- Windowsで設定
+  - 「ファイアウォールとネットワーク保護」→「詳細設定」→「セキュリティが強化された Windows Defender ファイアウォール」
+    - 受信の規則で新しい規則を追加。ポート番号→「TCP」「22」→「接続を許可する」→「プライベート」→名前「WSL ubuntu service」(なんでもいい)
+  
