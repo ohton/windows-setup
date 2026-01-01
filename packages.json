@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2025-09-13T18:53:36.109-00:00",
+	"CreationDate" : "2026-01-01T23:25:05.878-00:00",
 	"Sources" : 
 	[
 		{
@@ -25,6 +25,9 @@
 					"PackageIdentifier" : "Microsoft.Git"
 				},
 				{
+					"PackageIdentifier" : "MoritzBunkus.MKVToolNix"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.OneDrive"
 				},
 				{
@@ -34,37 +37,37 @@
 					"PackageIdentifier" : "XnSoft.XnViewMP"
 				},
 				{
-					"PackageIdentifier" : "Elgato.4KCaptureUtility"
-				},
-				{
-					"PackageIdentifier" : "Synology.DriveClient"
+					"PackageIdentifier" : "Squirrels.AirParrot3"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2010.x64"
 				},
 				{
-					"PackageIdentifier" : "RealVNC.VNCViewer"
-				},
-				{
 					"PackageIdentifier" : "Apple.Bonjour"
 				},
 				{
-					"PackageIdentifier" : "GlavSoft.TightVNC"
-				},
-				{
-					"PackageIdentifier" : "Logitech.OptionsPlus"
+					"PackageIdentifier" : "RealVNC.VNCViewer"
 				},
 				{
 					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
+					"PackageIdentifier" : "GlavSoft.TightVNC"
+				},
+				{
+					"PackageIdentifier" : "Synology.DriveClient"
+				},
+				{
+					"PackageIdentifier" : "Logitech.OptionsPlus"
+				},
+				{
 					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
-					"PackageIdentifier" : "HandBrake.HandBrake"
+					"PackageIdentifier" : "Elgato.4KCaptureUtility"
 				},
 				{
-					"PackageIdentifier" : "MoritzBunkus.MKVToolNix"
+					"PackageIdentifier" : "HandBrake.HandBrake"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Edge"
@@ -79,6 +82,9 @@
 					"PackageIdentifier" : "Anker.AnkerMake"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2013.x64"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
@@ -88,16 +94,16 @@
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
 				},
 				{
-					"PackageIdentifier" : "Python.Launcher"
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier" : "Python.Launcher"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2010.x86"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "Discord.Discord"
@@ -115,13 +121,13 @@
 					"PackageIdentifier" : "Obsidian.Obsidian"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
 					"PackageIdentifier" : "Python.Python.3.13"
 				},
 				{
 					"PackageIdentifier" : "mpv.net"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
@@ -166,5 +172,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.11.430"
+	"WinGetVersion" : "1.12.350"
 }
