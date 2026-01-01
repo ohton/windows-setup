@@ -1,11 +1,14 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2025-09-03T06:50:32.650-00:00",
+	"CreationDate" : "2025-09-13T18:53:36.109-00:00",
 	"Sources" : 
 	[
 		{
 			"Packages" : 
 			[
+				{
+					"PackageIdentifier" : "DMM.GamePlayer"
+				},
 				{
 					"PackageIdentifier" : "7zip.7zip"
 				},
@@ -22,13 +25,22 @@
 					"PackageIdentifier" : "Microsoft.Git"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
 					"PackageIdentifier" : "XnSoft.XnConvert"
 				},
 				{
 					"PackageIdentifier" : "XnSoft.XnViewMP"
 				},
 				{
+					"PackageIdentifier" : "Elgato.4KCaptureUtility"
+				},
+				{
 					"PackageIdentifier" : "Synology.DriveClient"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2010.x64"
 				},
 				{
 					"PackageIdentifier" : "RealVNC.VNCViewer"
@@ -38,6 +50,9 @@
 				},
 				{
 					"PackageIdentifier" : "GlavSoft.TightVNC"
+				},
+				{
+					"PackageIdentifier" : "Logitech.OptionsPlus"
 				},
 				{
 					"PackageIdentifier" : "GitHub.cli"
@@ -52,10 +67,37 @@
 					"PackageIdentifier" : "MoritzBunkus.MKVToolNix"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.Edge"
+				},
+				{
+					"PackageIdentifier" : "OBSProject.OBSStudio"
+				},
+				{
 					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
+					"PackageIdentifier" : "Anker.AnkerMake"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+				},
+				{
+					"PackageIdentifier" : "Python.Launcher"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2010.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
 					"PackageIdentifier" : "Discord.Discord"
@@ -76,7 +118,25 @@
 					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
+					"PackageIdentifier" : "Python.Python.3.13"
+				},
+				{
 					"PackageIdentifier" : "mpv.net"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Teams"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AppInstaller"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				}
 			],
 			"SourceDetails" : 
@@ -85,6 +145,24 @@
 				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
 				"Name" : "winget",
 				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		},
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "XPFCC4CD725961"
+				},
+				{
+					"PackageIdentifier" : "9N04QDXBNMCQ"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier" : "StoreEdgeFD",
+				"Name" : "msstore",
+				"Type" : "Microsoft.Rest"
 			}
 		}
 	],
