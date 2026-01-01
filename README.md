@@ -10,6 +10,8 @@
   現在のPCのインストール済みアプリ一覧を `packages.json` にエクスポートするPowerShellスクリプト
 - `install-apps.ps1`  
   `packages.json` を読み込み、wingetで一括インストールするPowerShellスクリプト
+- `clear-winget-cache.ps1`  
+  wingetのインストーラキャッシュを確認・削除するPowerShellスクリプト
 
 ## マニュアルインストール
 
@@ -55,6 +57,25 @@ winget import packages.json
 ```powershell
 winget export packages.json
 ```
+
+## キャッシュクリーンアップ
+
+wingetのインストーラキャッシュを確認・削除します：
+
+```powershell
+./clear-winget-cache.ps1
+```
+
+確認なしで即座に削除する場合：
+
+```powershell
+./clear-winget-cache.ps1 -Force
+```
+
+このスクリプトは以下の場所のキャッシュをチェックします：
+- `LocalAppData\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\LocalCache`
+- `LocalAppData\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\TempState`
+- `%TEMP%\WinGet`
 
 `packages.json` の例（抜粋）：
 
