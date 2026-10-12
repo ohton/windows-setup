@@ -1,66 +1,106 @@
 # Windows 11 セットアップ
 
-このリポジトリは、Windows 11 環境での個人的なアプリケーションセットアップ例をまとめています。
+このリポジトリは、Windows 11 環境での個人的なアプリケーションセットアップ手順・設定例をまとめています。
 
 ## ファイル構成
 
 - `packages.json`  
-  インストールしたいアプリ一覧（wingetのエクスポート形式JSONファイル）
-- `export-packages.ps1`  
-  現在のPCのインストール済みアプリ一覧を `packages.json` にエクスポートするPowerShellスクリプト
-- `install-apps.ps1`  
-  `packages.json` を読み込み、wingetで一括インストールするPowerShellスクリプト
+  管理対象のアプリ一覧（wingetのエクスポート形式JSONファイル）
 - `clear-winget-cache.ps1`  
   wingetのインストーラキャッシュを確認・削除するPowerShellスクリプト
 
-## マニュアルインストール
+---
+
+## 1. アプリケーションのインストール
+
+### 一括インストール（初回セットアップ）
+
+PowerShellまたはWindows Terminalから以下を実行することで、`packages.json` に記載されたアプリを一括インストールできます。  
+（`--accept-source-agreements` や `--accept-package-agreements` を付与することで、ライセンス確認等のプロンプトを自動承諾できます）
+
+```powershell
+winget import -i packages.json --accept-source-agreements --accept-package-agreements
+```
+
+> **Note**: コマンドを直接実行するため、PowerShellスクリプトの実行ポリシー（ExecutionPolicy）の変更は不要です。
+
+### マニュアルインストール
 
 - **VSCode**  
-  wingetからインストールするとコンテキストメニュー追加のチェックが省略されるため、インストーラからインストール。
+  wingetからインストールするとコンテキストメニュー追加（「Code で開く」など）のチェックが省略されるため、公式サイトのインストーラからインストールします。
 
-## 一括インストール
+---
 
-PowerShellから以下を実行することで、`packages.json` に記載されたアプリをインストールできます。
+## 2. アプリケーションの更新とピン留め（pin）
 
-```powershell
-./install-apps.ps1
-```
-または直接以下を実行してください：
+日常的な更新は一括アップグレードで行い、自動更新を避けたいアプリにはピン留め（`winget pin`）を活用します。
 
-```powershell
-winget import packages.json
-```
+### 一括アップグレード
 
-### 注意事項
-
-- PowerShellスクリプトの実行ポリシーの設定が必要です。
-  - 現在のセッションのみ制限を緩和する場合：
-    ```powershell
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-    ```
-  - ユーザー全体で変更する場合：
-    ```powershell
-    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-    ```
-- wingetがインストールされている必要があります。
-- `packages.json` の内容は `winget export` で生成されます。
-
-### アプリ一覧のエクスポート方法
-
-インストール済みアプリをエクスポートしたいPCで、PowerShellから以下を実行してください：
+インストール済みアプリを最新バージョンに一括更新します：
 
 ```powershell
-./export-packages.ps1
+winget upgrade --all --accept-source-agreements --accept-package-agreements
 ```
-または直接以下を実行してください：
+
+### 特定パッケージの更新スキップ（ピン留め / pin）
+
+特定バージョンで固定したいパッケージや、意図しない自動更新を防ぎたいパッケージはピン留めして一括更新対象から除外します。
+
+- **パッケージをピン留め（更新スキップ）**:
+  ```powershell
+  winget pin add <PackageIdentifier>
+  ```
+  *(例: `winget pin add Microsoft.Git`)*
+
+- **完全に更新をブロックする場合（`--blocking`）**:  
+  通常のピン留めは `winget upgrade <PackageIdentifier>` と明示指定した際に更新されてしまいますが、ピンを解除するまで更新自体を完全に禁止したい場合は `--blocking` を指定します。
+  ```powershell
+  winget pin add <PackageIdentifier> --blocking
+  ```
+
+- **バージョン範囲を指定して固定する場合**:
+  ```powershell
+  winget pin add <PackageIdentifier> -v "2.*"
+  ```
+
+- **ピン留め一覧の確認**:
+  ```powershell
+  winget pin list
+  ```
+
+- **ピン留めの解除**:
+  ```powershell
+  winget pin remove <PackageIdentifier>
+  ```
+
+- **全ピン留めのリセット**:
+  ```powershell
+  winget pin reset
+  ```
+
+- **ピン留めを無視してすべて強制更新したい場合**:
+  ```powershell
+  winget upgrade --all --include-pinned
+  ```
+
+---
+
+## 3. アプリ一覧のエクスポート（バックアップ / 同期）
+
+現在のPCにインストールされているアプリ一覧を `packages.json` にエクスポートします：
 
 ```powershell
-winget export packages.json
+winget export -o packages.json
 ```
 
-## キャッシュクリーンアップ
+必要に応じて不要なアプリをJSONから除外してコミットしてください。
 
-wingetのインストーラキャッシュを確認・削除します：
+---
+
+## 4. キャッシュクリーンアップ
+
+wingetがダウンロードしたインストーラ等のキャッシュを確認・削除するスクリプトです。
 
 ```powershell
 ./clear-winget-cache.ps1
@@ -77,27 +117,19 @@ wingetのインストーラキャッシュを確認・削除します：
 - `LocalAppData\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\TempState`
 - `%TEMP%\WinGet`
 
-`packages.json` の例（抜粋）：
-
-```json
-[
-  {
-    "PackageIdentifier": "Microsoft.Edge",
-    "Version": "latest"
-  },
-  {
-    "PackageIdentifier": "Google.Chrome",
-    "Version": "latest"
-  }
-]
+※ PowerShellスクリプトの実行が制限されている場合は、事前に現在のセッションで実行ポリシーを緩和してください：
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 ```
 
-## インストール後のセットアップ
+---
+
+## 5. インストール後のセットアップ
 
 ### TightVNC Service
 
 - Primary passwordを設定
-- Main画面のみ表示用に Extra Portsで 5901: `1920x1080+0+0` を追加
+- Main画面のみ表示用に Extra Portsで `5901: 1920x1080+0+0` を追加
 
 ### Docker
 
@@ -123,4 +155,3 @@ wingetのインストーラキャッシュを確認・削除します：
 - Windowsで設定
   - 「ファイアウォールとネットワーク保護」→「詳細設定」→「セキュリティが強化された Windows Defender ファイアウォール」
     - 受信の規則で新しい規則を追加。ポート番号→「TCP」「22」→「接続を許可する」→「プライベート」→名前「WSL ubuntu service」(なんでもいい)
-  
