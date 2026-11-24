@@ -22,7 +22,7 @@ PowerShellまたはWindows Terminalから以下を実行することで、`packa
 winget import -i packages.json --accept-source-agreements --accept-package-agreements
 ```
 
-> **Note**: コマンドを直接実行するため、PowerShellスクリプトの実行ポリシー（ExecutionPolicy）の変更は不要です。
+> **Note**: コマンドを直接実行するため、PowerShellスクリプトの実行ポリシー（ExecutionPolicy）の変更は不要です。（スクリプト実行時のポリシー設定については [4. キャッシュクリーンアップ](#4-キャッシュクリーンアップ) を参照）
 
 ### マニュアルインストール
 
@@ -117,14 +117,56 @@ wingetがダウンロードしたインストーラ等のキャッシュを確�
 - `LocalAppData\Packages\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe\TempState`
 - `%TEMP%\WinGet`
 
-※ PowerShellスクリプトの実行が制限されている場合は、事前に現在のセッションで実行ポリシーを緩和してください：
-```powershell
-Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-```
+### スクリプトの実行ポリシー（ExecutionPolicy）
+
+PowerShellスクリプトの実行が制限されている場合は、事前に実行ポリシーを変更してください：
+
+- **現在のセッションのみ一時的に緩和する場合**（推奨・ウィンドウを閉じると元に戻ります）：
+  ```powershell
+  Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+  ```
+
+- **現在のユーザー全体で変更する場合**（管理者権限不要）：
+  ```powershell
+  Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+  ```
+
+> **Note**: 現在のポリシー設定状況は `Get-ExecutionPolicy -List` で確認できます。
 
 ---
 
 ## 5. インストール後のセットアップ
+
+### Git
+
+ユーザー名やメールアドレスなど、Gitの基本設定を行います：
+
+```powershell
+git config --global user.name "<ユーザー名>"
+git config --global user.email "<メールアドレス>"
+```
+
+必要に応じて追加設定：
+
+- **デフォルトブランチ名を `main` に設定**:
+  ```powershell
+  git config --global init.defaultBranch main
+  ```
+
+- **日本語ファイル名の文字化け防止**:
+  ```powershell
+  git config --global core.quotepath false
+  ```
+
+- **改行コードの自動変換設定**:
+  ```powershell
+  git config --global core.autocrlf false
+  ```
+
+- **設定内容の確認**:
+  ```powershell
+  git config --global --list
+  ```
 
 ### TightVNC Service
 
