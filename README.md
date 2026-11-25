@@ -24,6 +24,21 @@ winget import -i packages.json --accept-source-agreements --accept-package-agree
 
 > **Note**: コマンドを直接実行するため、PowerShellスクリプトの実行ポリシー（ExecutionPolicy）の変更は不要です。（スクリプト実行時のポリシー設定については [4. キャッシュクリーンアップ](#4-キャッシュクリーンアップ) を参照）
 
+### Microsoft Store (`msstore`) パッケージ対応表
+
+`packages.json` の `msstore` ソースはアプリ名ではなく製品 ID のみで記録されるため、対応関係をここにメモしています。
+
+| PackageIdentifier | アプリ名 | 公開元 | 備考 |
+| :--- | :--- | :--- | :--- |
+| `XPFCC4CD725961` | LINE Desktop | LINE (LY Corporation) | コミュニケーションアプリ |
+| `9N04QDXBNMCQ` | Tiefsee | hbl917070 | 画像ビューアー |
+| `9PFXXSHC64H3` | Raycast | Raycast Technologies Ltd. | AI ランチャー / コマンドバー |
+
+> **Tip**: ID からアプリ名を調べたい場合は以下で確認できます。
+> ```powershell
+> winget show --id <PackageIdentifier> --source msstore
+> ```
+
 ### マニュアルインストール
 
 - **VSCode**  
