@@ -1,176 +1,207 @@
 {
-	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2026-01-01T23:25:05.878-00:00",
-	"Sources" : 
-	[
+	"$schema": "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate": "2026-11-25T09:48:19.504-00:00",
+	"Sources": [
 		{
-			"Packages" : 
-			[
+			"Packages": [
 				{
-					"PackageIdentifier" : "DMM.GamePlayer"
+					"PackageIdentifier": "7zip.7zip"
 				},
 				{
-					"PackageIdentifier" : "7zip.7zip"
+					"PackageIdentifier": "Synology.ImageAssistant"
 				},
 				{
-					"PackageIdentifier" : "Synology.ImageAssistant"
+					"PackageIdentifier": "HulubuluSoftware.AdvancedRenamer"
 				},
 				{
-					"PackageIdentifier" : "HulubuluSoftware.AdvancedRenamer"
+					"PackageIdentifier": "Docker.DockerDesktop"
 				},
 				{
-					"PackageIdentifier" : "Docker.DockerDesktop"
+					"PackageIdentifier": "Microsoft.Git"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Git"
+					"PackageIdentifier": "MoritzBunkus.MKVToolNix"
 				},
 				{
-					"PackageIdentifier" : "MoritzBunkus.MKVToolNix"
+					"PackageIdentifier": "Microsoft.OneDrive"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
+					"PackageIdentifier": "XnSoft.XnConvert"
 				},
 				{
-					"PackageIdentifier" : "XnSoft.XnConvert"
+					"PackageIdentifier": "XnSoft.XnViewMP"
 				},
 				{
-					"PackageIdentifier" : "XnSoft.XnViewMP"
+					"PackageIdentifier": "GlavSoft.TightVNC"
 				},
 				{
-					"PackageIdentifier" : "Squirrels.AirParrot3"
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2010.x64"
+					"PackageIdentifier": "Google.JapaneseIME"
 				},
 				{
-					"PackageIdentifier" : "Apple.Bonjour"
+					"PackageIdentifier": "Apple.Bonjour"
 				},
 				{
-					"PackageIdentifier" : "RealVNC.VNCViewer"
+					"PackageIdentifier": "RealVNC.VNCViewer"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier": "Logitech.OptionsPlus"
 				},
 				{
-					"PackageIdentifier" : "GlavSoft.TightVNC"
+					"PackageIdentifier": "GitHub.cli"
 				},
 				{
-					"PackageIdentifier" : "Synology.DriveClient"
+					"PackageIdentifier": "Synology.DriveClient"
 				},
 				{
-					"PackageIdentifier" : "Logitech.OptionsPlus"
+					"PackageIdentifier": "Tailscale.Tailscale"
 				},
 				{
-					"PackageIdentifier" : "Google.Chrome"
+					"PackageIdentifier": "Squirrels.AirParrot3"
 				},
 				{
-					"PackageIdentifier" : "Elgato.4KCaptureUtility"
+					"PackageIdentifier": "Google.Chrome"
 				},
 				{
-					"PackageIdentifier" : "HandBrake.HandBrake"
+					"PackageIdentifier": "HandBrake.HandBrake"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Edge"
+					"PackageIdentifier": "Microsoft.Edge"
 				},
 				{
-					"PackageIdentifier" : "OBSProject.OBSStudio"
+					"PackageIdentifier": "OBSProject.OBSStudio"
 				},
 				{
-					"PackageIdentifier" : "Valve.Steam"
+					"PackageIdentifier": "Valve.Steam"
 				},
 				{
-					"PackageIdentifier" : "Anker.AnkerMake"
+					"PackageIdentifier": "Anker.AnkerMake"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2013.x64"
+					"PackageIdentifier": "Microsoft.VCRedist.2013.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.6"
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.6"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+					"PackageIdentifier": "Python.Launcher"
 				},
 				{
-					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.10"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier": "Microsoft.VCRedist.2010.x86"
 				},
 				{
-					"PackageIdentifier" : "Python.Launcher"
+					"PackageIdentifier": "nathancorvussolis.corvusskk"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2010.x86"
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier": "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "Discord.Discord"
+					"PackageIdentifier": "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
-					"PackageIdentifier" : "GitHub.GitHubDesktop"
+					"PackageIdentifier": "Discord.Discord"
 				},
 				{
-					"PackageIdentifier" : "Gyan.FFmpeg"
+					"PackageIdentifier": "Google.GeminiDesktop"
 				},
 				{
-					"PackageIdentifier" : "Vivaldi.Vivaldi"
+					"PackageIdentifier": "Gyan.FFmpeg"
 				},
 				{
-					"PackageIdentifier" : "Obsidian.Obsidian"
+					"PackageIdentifier": "Vivaldi.Vivaldi"
 				},
 				{
-					"PackageIdentifier" : "Python.Python.3.13"
+					"PackageIdentifier": "Obsidian.Obsidian"
 				},
 				{
-					"PackageIdentifier" : "mpv.net"
+					"PackageIdentifier": "Microsoft.PowerToys"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
+					"PackageIdentifier": "mpv.net"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.Teams"
+					"PackageIdentifier": "Python.Python.3.13"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.AppInstaller"
+					"PackageIdentifier": "Google.Antigravity"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
+					"PackageIdentifier": "Google.AntigravityIDE"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
+					"PackageIdentifier": "Canva.Affinity"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.WindowsTerminal"
+					"PackageIdentifier": "Microsoft.Teams"
+				},
+				{
+					"PackageIdentifier": "Microsoft.AppInstaller"
+				},
+				{
+					"PackageIdentifier": "Microsoft.365Copilot"
+				},
+				{
+					"PackageIdentifier": "Microsoft.DotNet.Native.Runtime"
+				},
+				{
+					"PackageIdentifier": "Microsoft.UI.Xaml.2.8"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCLibs.Desktop.14"
+				},
+				{
+					"PackageIdentifier": "Microsoft.VCLibs.14"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsAppRuntime.1.2"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsAppRuntime.1.7"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsAppRuntime.1.8"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsAppRuntime.2"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WindowsTerminal"
+				},
+				{
+					"PackageIdentifier": "Microsoft.WSL"
 				}
 			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://cdn.winget.microsoft.com/cache",
-				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
-				"Name" : "winget",
-				"Type" : "Microsoft.PreIndexed.Package"
+			"SourceDetails": {
+				"Argument": "https://cdn.winget.microsoft.com/cache",
+				"Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name": "winget",
+				"Type": "Microsoft.PreIndexed.Package"
 			}
 		},
 		{
-			"Packages" : 
-			[
+			"Packages": [
 				{
-					"PackageIdentifier" : "XPFCC4CD725961"
+					"PackageIdentifier": "XPFCC4CD725961"
 				},
 				{
-					"PackageIdentifier" : "9N04QDXBNMCQ"
+					"PackageIdentifier": "9N04QDXBNMCQ"
 				}
 			],
-			"SourceDetails" : 
-			{
-				"Argument" : "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
-				"Identifier" : "StoreEdgeFD",
-				"Name" : "msstore",
-				"Type" : "Microsoft.Rest"
+			"SourceDetails": {
+				"Argument": "https://storeedgefd.dsx.mp.microsoft.com/v9.0",
+				"Identifier": "StoreEdgeFD",
+				"Name": "msstore",
+				"Type": "Microsoft.Rest"
 			}
 		}
 	],
-	"WinGetVersion" : "1.12.350"
+	"WinGetVersion": "1.29.380"
 }
